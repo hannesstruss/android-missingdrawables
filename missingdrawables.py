@@ -25,7 +25,7 @@ class DrawableFinder(object):
         self.drawables = {}  # map bucket name to set of files
 
         for bucket in BUCKETS:
-            bucket_dir = os.path.join(res_path, 'drawable-%sdpi' % bucket)
+            bucket_dir = os.path.join(self.res_path, 'drawable-%sdpi' % bucket)
             if os.path.exists(bucket_dir):
                 self.drawables[bucket] = set(os.listdir(bucket_dir))
 
@@ -46,6 +46,10 @@ class DrawableFinder(object):
     def print_table(self):
         self.find_drawables()
 
+        if not self.drawables:
+            print 'No drawables found in %s' % os.path.abspath(self.res_path)
+            sys.exit()
+
         all_set = set()
         all_set.update(*self.drawables.values())
         all = sorted(list(all_set))
@@ -62,9 +66,12 @@ class DrawableFinder(object):
             print ' %s |%s|' % (name, row)
 
 
-if __name__ == '__main__':
+def main():
     res_path = 'res'
     if len(sys.argv) > 1:
         res_path = sys.argv[1]
 
     DrawableFinder(res_path).print_table()
+
+if __name__ == '__main__':
+    main()

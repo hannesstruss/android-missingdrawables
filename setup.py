@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='android-missingdrawables',
@@ -9,7 +9,6 @@ setup(
     author_email='x@hannesstruss.de',
     url='https://github.com/hannesstruss/android-missingdrawables',
     py_modules=['missingdrawables'],
-    include_package_data=True,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

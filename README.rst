@@ -3,7 +3,8 @@ Android-MissingDrawables
 
 Check if your Drawables are present in all density buckets. Example::
 
-    $ python missingdrawables.py ~/projects/AwesomeApp/res
+    $ sudo pip install android-missingdrawables
+    $ missingdrawables ~/projects/AwesomeApp/res
                                              l  |  m  |  h  |  xh 
                              action_g.png |  +  |  +  |  +  |  +  |
                            action_pin.png |  +  |  +  |  -  |  +  |
